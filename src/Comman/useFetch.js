@@ -13,8 +13,7 @@ const useFetch = (url = "") => {
           "x-rapidapi-host": "imdb236.p.rapidapi.com",
           "x-rapidapi-key":
             "f1df57b17emsha659ee5b85e2348p1bfb43jsn7a2ff0142259",
-          // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOTEzY2U5MjUzMDc1ZjFiMGQzYzExNzBhMmVkOWZmNyIsIm5iZiI6MTc0NTQ4NDQ5OS43MjYsInN1YiI6IjY4MDlmYWQzZTkyZjk0MGNhNjljZmRjNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mWxjl23PEevx4vFt_5DGetkWDI6WbSx_gMSJlCVw-Xk',
-          // 'Content-Type': 'application/json',
+          
         },
       });
      
@@ -35,6 +34,6 @@ const useFetch = (url = "") => {
     fetchData();
   }, []);
 
-  return { data, loading, error, refetch: fetchData };
+  return { data, loading, error };
 };
 export default useFetch;

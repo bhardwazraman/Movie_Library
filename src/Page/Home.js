@@ -1,8 +1,8 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import useFetch from "../Comman/useFetch";
 import MovieItem from "../Components/MovieItem";
 const Home = () => {
-  const { data, loading, error, refetch } = useFetch(
+  const { data, loading, error } = useFetch(
     "https://imdb236.p.rapidapi.com/imdb/lowest-rated-movies"
   );
   const [search, setSearch] = useState("");
@@ -27,9 +27,7 @@ const Home = () => {
     return <div>{error.message}</div>;
   }
   return (
-    <div
-      style={styles.container}
-    >
+    <div style={styles.container}>
       <h1> Movie Search page</h1>
       <div style={styles.formWrapper}>
         <input
@@ -49,19 +47,23 @@ const Home = () => {
   );
 };
 export default Home;
-const styles={
-    container:{
-    
-        display: "flex",
-        flex: 1,
-        flexDirection: "column",
-        alignItems: "flex-start",
-        marginLeft: 20,
-      
-},
-formWrapper:{ display: "flex", flexDirection: "row", padding: 20 },
-inputStyle:{ marginRight: 10 },
-listWrapper:{ display: "flex", flexWrap: "wrap", flex: 1 }
-
-
-}
+const styles = {
+  container: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "flex-start",
+    margin: 20,
+  },
+  formWrapper: { display: "flex", flexDirection: "row" },
+  inputStyle: { marginRight: 10 },
+  listWrapper: {
+    display: "flex",
+    flexWrap: "wrap",
+    flex: 1,
+    listStyleType: "none",
+    padding: 0,
+    margin: 0,
+    marginTop: 20,
+  },
+};
