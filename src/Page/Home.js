@@ -13,15 +13,19 @@ const Home = () => {
       setFilteredData(data);
     }
   }, [data]);
-  const filterData = () => {
-    let filterDataValue = data.filter((item) =>
+  const handleFilterData = () => {
+    let modifiedData = data.filter((item) =>
       item.primaryTitle.toLowerCase().includes(search.toLowerCase())
     );
-    setFilteredData(filterDataValue);
+    setFilteredData(modifiedData);
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div style={styles.loadingContainer}>
+        <h1> Loading...</h1>
+      </div>
+    );
   }
   if (error && error.message) {
     return <div>{error.message}</div>;
@@ -36,7 +40,7 @@ const Home = () => {
           placeholder="Search Movie"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button onClick={filterData}>Search</button>
+        <button onClick={handleFilterData}>Search</button>
       </div>
       <ul style={styles.listWrapper}>
         {filteredData.map((data) => (
@@ -54,6 +58,13 @@ const styles = {
     flexDirection: "column",
     alignItems: "flex-start",
     margin: 20,
+  },
+  loadingContainer: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   formWrapper: { display: "flex", flexDirection: "row" },
   inputStyle: { marginRight: 10 },

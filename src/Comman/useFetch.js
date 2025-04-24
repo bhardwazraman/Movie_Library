@@ -13,15 +13,14 @@ const useFetch = (url = "") => {
           "x-rapidapi-host": "imdb236.p.rapidapi.com",
           "x-rapidapi-key":
             "f1df57b17emsha659ee5b85e2348p1bfb43jsn7a2ff0142259",
-          
         },
       });
-     
+
       if (response.status !== 200) {
         throw new Error("Network response was not ok");
       }
       const result = await response.data;
-      console.log("result",result);
+      console.log("result", result);
       setData(result);
     } catch (error) {
       console.log(error);
